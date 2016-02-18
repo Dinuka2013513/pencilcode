@@ -1,0 +1,413 @@
+<html>
+    <head>
+        <script src="../lib/jquery.js"></script>
+        <script src="../src/micro-db.js"></script>
+        
+        <script>
+            window.microdb.user = "dinuka";
+            window.microdb.host = "pencilcode.net.dev/data";
+            
+            for (var x = 0; x < 10; x++) {
+                (function() {
+                    var startTime = window.performance.now();
+                    //var startTime = new Date().getMilliseconds();
+                    var dbName = 'db-'+x+'.json';
+                    var db = new MicroDB(dbName);
+                    
+                    db.set(function(db) {
+                        db.subjects = [
+                            {name: "English",score : 12},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "Maths",score : 12},
+                            {name: "Science",score : 67},
+                            {name: "History",  score : 12}
+                        ];
+                    }).then(function(result, error) {
+                        if (error) {
+                            console.log("Error : " + error);
+                        } else {
+                            console.log("Updated DB");
+                            db.get(function(db) {
+                                console.log("############# starting");
+                                console.log("############# db.subjects " + JSON.stringify(db.subjects));
+                                console.log("############# db.subjects.length "+db.subjects.length);
+                                var passedSubjects = [];
+                                for (var x = 0; x < db.subjects.length; x++) {
+                                    var subject = db.subjects[x];
+                                    console.log(" ############## score : " + subject.score);
+                                    if (subject.score > 50) {
+                                        passedSubjects.push(subject);
+                                    }
+                                }
+                                for (var x = 0; x < db.subjects.length; x++) {
+                                    var subject = db.subjects[x];
+                                    console.log(" ############## score : " + subject.score);
+                                    if (subject.score > 50) {
+                                        passedSubjects.push(subject);
+                                    }
+                                }
+                                for (var x = 0; x < db.subjects.length; x++) {
+                                    var subject = db.subjects[x];
+                                    console.log(" ############## score : " + subject.score);
+                                    if (subject.score > 50) {
+                                        passedSubjects.push(subject);
+                                    }
+                                }
+                                for (var x = 0; x < db.subjects.length; x++) {
+                                    var subject = db.subjects[x];
+                                    console.log(" ############## score : " + subject.score);
+                                    if (subject.score > 50) {
+                                        passedSubjects.push(subject);
+                                    }
+                                }
+                                for (var x = 0; x < db.subjects.length; x++) {
+                                    var subject = db.subjects[x];
+                                    console.log(" ############## score : " + subject.score);
+                                    if (subject.score > 50) {
+                                        passedSubjects.push(subject);
+                                    }
+                                }
+                                
+                                return passedSubjects;
+                            }).then(function(result, error) {
+                                if (error) {
+                                    console.log("Error : " + error);
+                                } else {
+                                    var endTime = window.performance.now();
+                                    //var endTime = new Date().getMilliseconds();
+                                    //console.log("Passed subjects : " + JSON.stringify(result));
+                                    $('#myTable').append('<tr> <td>'+dbName+'</td>  <td>'+(endTime-startTime)+'</td>  <td><p>'+JSON.stringify(result, null, '\t')+'</p></td> </tr>');
+                                }
+                            });
+                        }
+                    });
+                })(x);
+            }
+          
+          </script>
+    </head>
+    <body>
+        <table border="1" id="myTable"> 
+            <tr>
+                <th>ID</th>
+                <th>time</th>
+                <th>output</th>
+            </tr>
+        </table>
+    </body>
+</html>

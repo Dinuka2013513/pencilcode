@@ -1,0 +1,6 @@
+{
+    "host": "pencilcode.net.dev",
+    "port": 3000,
+    "dbPath": "../data",
+    "dbCacheTimeout": 10000
+}
