@@ -20,16 +20,13 @@ function setDbPath(path) {
 function get(success, error, db, query) {
   
   //TODO implement a way to pass parameters to the query callback
-  var parameters = [];
+  var args = [];
 
   validateDb(function (db, dbPath) {
-
-    parameters.unshift(db);
-
     if (query) {
       interpreter.execute(function (result) {
         success(result.output);
-      }, error, query, parameters)
+      }, error, query, db, args)
     } else {
       success({
         result: db
@@ -42,19 +39,17 @@ function get(success, error, db, query) {
 function set(success, error, db, query) {
 
   //TODO implement a way to pass parameters to the query callback
-  var parameters = [];
+  var args = [];
 
   validateDb(function (db, dbPath) {
-
-    parameters.unshift(db);
-
     if (query) {
       interpreter.execute(function (result) {
-        updateDb(dbPath, result.input[0]);
+        console.log("result.input ##############"+JSON.stringify(result, null, '\t')+"##########################");
+        updateDb(dbPath, result.input);
         success({
           message: "Updated"
         });
-      }, error, query, parameters)
+      }, error, query, db, args)
     } else {
       success({
         message: "There is nothing to save"

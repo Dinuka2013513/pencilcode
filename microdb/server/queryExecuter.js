@@ -3,10 +3,14 @@ var Interpreter = require('./JS-Interpreter/interpreter.js');
 
 var transactionSource = fs.readFileSync(__dirname + '/scripts/newQuery.js').toString();
 
-function execute(success, error, transaction, parameters) {
-  var code = transactionSource
-    .replace('transaction_data', JSON.stringify(parameters))
-    .replace('transaction_method', transaction.toString());
+function execute(success, error, transaction, db, args) {
+  var code = "var db = " + JSON.stringify(db) + ";\n"
+    + "var args = " + JSON.stringify(args) + ";\n"
+    + "var transactionMethod = " + transaction.toString() + ";\n"
+    + transactionSource;
+    
+    
+  console.log("######################\n"+code+"\n#####################");
     
     //code = "3*4";
 
@@ -38,16 +42,10 @@ function execute(success, error, transaction, parameters) {
     });
     
     try {
-      console.log('running the interpreter');
       interpreter.run();
-      console.log('interpreter.value  : '+interpreter.value.toString());
-    
       var result = JSON.parse(interpreter.value.toString());
-      console.log('interpreter.value.input  : '+JSON.stringify(result.input));
-      console.log('interpreter.value.output : '+JSON.stringify(result.output));
-      console.log('ending the interpreter');
+      console.log("Result : "+JSON.stringify(result));
       success(result);
-      console.log('done the interpreter');
     } catch (error) {
       console.log("Error in the query : "+error.message);
       error("Error in the query : "+error.message);

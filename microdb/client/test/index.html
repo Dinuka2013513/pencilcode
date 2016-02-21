@@ -14,7 +14,7 @@
                     var dbName = 'db-'+x+'.json';
                     var db = new MicroDB(dbName);
                     
-                    db.set(function(db) {
+                    db.set(function() {
                         db.subjects = [
                             {name: "English",score : 12},
                             {name: "Maths",score : 12},
@@ -342,7 +342,7 @@
                             console.log("Error : " + error);
                         } else {
                             console.log("Updated DB");
-                            db.get(function(db) {
+                            db.get(function() {
                                 console.log("############# starting");
                                 console.log("############# db.subjects " + JSON.stringify(db.subjects));
                                 console.log("############# db.subjects.length "+db.subjects.length);
