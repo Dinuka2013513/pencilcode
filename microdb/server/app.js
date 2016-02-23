@@ -24,16 +24,7 @@ app.get('/data/:dbName', function (req, res) {
   } else {
     var get = req.query.get;
     var set = req.query.set;
-    if (get) {
-      var transaction = req.query.query;
-      dbService.get(
-        function (result) {
-          res.json(result);
-        },
-        function (err) {
-          res.status(400).send(err);
-        }, userName + "/" + dbName, get);
-    } else if (set) {
+    if (set) {
       var value = req.query.set;
       console.log("Value is : " + value);
       dbService.set(
@@ -44,7 +35,14 @@ app.get('/data/:dbName', function (req, res) {
           res.status(400).send(err);
         }, userName + "/" + dbName, set);
     } else {
-      res.status(400).send("Database query is not valid");
+      var transaction = req.query.query;
+      dbService.get(
+        function (result) {
+          res.json(result);
+        },
+        function (err) {
+          res.status(400).send(err);
+        }, userName + "/" + dbName, get);
     }
   }
 });
