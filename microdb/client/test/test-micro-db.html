@@ -1,13 +1,38 @@
 <html>
     <head>
         <script src="../lib/jquery.js"></script>
-        <script src="../src/micro-db.js"></script>
+        <script src="../dist/micro-db-client.js"></script>
         
         <script>
-            window.microdb.user = "dinuka";
-            window.microdb.host = "pencilcode.net.dev/data";
+            window.microdb.host = function() {
+                return "dinuka.pencilcode.net.dev/data";
+            };
             
-            for (var x = 0; x < 10; x++) {
+          
+          
+          (function() {
+              
+              var dbName = 'db.json';
+              var db = new MicroDB(dbName);
+              db.set(function() {
+                  db.name = "Dinuka";
+              }).then(function(result) {
+                  
+                  console.log("SET success : " + JSON.stringify(result));
+                  db.get(function(){
+                      return this.db;
+                  }).then(function(result) {
+                      console.log("GET success : " + JSON.stringify(result));
+                  }).catch(function(error) {
+                      console.log("GET error : " + JSON.stringify(error));
+                  });
+              }).catch(function(error) {
+                  console.log("SET error : " + JSON.stringify(error));
+              });
+              
+              //return;
+              
+              for (var x = 0; x < 1; x++) {
                 (function() {
                     var startTime = window.performance.now();
                     //var startTime = new Date().getMilliseconds();
@@ -398,6 +423,9 @@
                     });
                 })(x);
             }
+              
+          })();
+          
           
           </script>
     </head>

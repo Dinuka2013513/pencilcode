@@ -1,7 +1,7 @@
 
 var fs = require('fs');
-var interpreter = require('./queryExecuter');
-var dbCache = require('./cacheService')
+var interpreter = require('./micro-db-interpreter.js');
+var dbCache = require('./cacheService.js')
 var config = require('./config.json');
 
 var dbDir = "./data";

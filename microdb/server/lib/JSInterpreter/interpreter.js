@@ -31,8 +31,36 @@
  *     global scope object.
  * @constructor
  */
-var window = {};
-var acorn = require('./acorn.js');
+
+(function(Interpreter) {
+    var acorn;
+    var windowObj = {};
+    
+	if (typeof exports === "object" && typeof module !== "undefined") {
+        acorn = require('./acorn.js');
+		module.exports = Interpreter(acorn, windowObj);
+	} else if (typeof define === "function" && define.amd) {
+        acorn = require('./acorn.js');
+		define([], function() {
+            return Interpreter(acorn, windowObj);
+        });
+	} else {
+		var g;
+		if (typeof window !== "undefined") {
+			g = window;
+            windowObj = window;
+		} else if (typeof global !== "undefined") {
+			g = global;
+		} else if (typeof self !=="undefined") {
+			g = self;
+		} else {
+			g = this
+		}
+
+        acorn = g.acorn;
+		g.Interpreter = Interpreter(acorn, windowObj);
+	}
+})(function(acorn, window) {
 
 var Interpreter = function(code, opt_initFunc) {
   this.initFunc_ = opt_initFunc;
@@ -2286,6 +2314,14 @@ Interpreter.prototype['stepThrowStatement'] = function() {
   }
 };
 
+Interpreter.prototype['stepTryStatement'] = function() {
+  //TODO the implementation of try blocks
+  //This is a temporary fix to ignore try statements
+  var state = this.stateStack[0];
+  state.done = true;
+  this.stateStack.shift();
+};
+
 Interpreter.prototype['stepUnaryExpression'] = function() {
   var state = this.stateStack[0];
   var node = state.node;
@@ -2379,10 +2415,12 @@ Interpreter.prototype['stepVariableDeclarator'] = function() {
 
 Interpreter.prototype['stepWhileStatement'] =
     Interpreter.prototype['stepDoWhileStatement'];
-
+    
 // Preserve top-level API functions from being pruned by JS compilers.
 // Add others as needed.
-window['Interpreter'] = Interpreter;
 Interpreter.prototype['step'] = Interpreter.prototype.step;
 Interpreter.prototype['run'] = Interpreter.prototype.run;
-module.exports = Interpreter;
+
+return Interpreter;
+    
+});

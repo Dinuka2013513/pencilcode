@@ -26,6 +26,7 @@ app.get('/data/:dbName', function (req, res) {
     var set = req.query.set;
     var args = [];
     
+    //Validate args
     try {
         var queryArgs = req.query.args;
         queryParams = JSON.parse(queryArgs);
@@ -36,9 +37,7 @@ app.get('/data/:dbName', function (req, res) {
         }
     } catch (err) {
     }
-    console.log("@@@@ args : "+ JSON.stringify(args));
-    console.log("@@@@ args : "+ Array.isArray(args));
-    
+
     if (set) {
       var value = req.query.set;
       console.log("Value is : " + value);

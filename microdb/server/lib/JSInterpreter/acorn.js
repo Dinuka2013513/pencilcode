@@ -1722,6 +1722,12 @@
       }
     }
 
+    try {
+        node.fn = input.substring(node.start, node.body.end;
+        node.fn = eval("("+input.substring(node.start, node.body.end+")");
+    } catch (error) {
+    }
+
     return finishNode(node, isStatement ? "FunctionDeclaration" : "FunctionExpression");
   }
 
