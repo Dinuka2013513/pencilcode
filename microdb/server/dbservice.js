@@ -17,11 +17,7 @@ function setDbPath(path) {
 
 //All search queries are pointed to this functions
 //success, error, db, query
-function get(success, error, db, query) {
-  
-  //TODO implement a way to pass parameters to the query callback
-  var args = [];
-
+function get(success, error, db, query, args) {
   validateDb(function (db, dbPath) {
     if (query) {
       interpreter.execute(function (result) {
@@ -36,11 +32,7 @@ function get(success, error, db, query) {
   }, error, db);
 }
 
-function set(success, error, db, query) {
-
-  //TODO implement a way to pass parameters to the query callback
-  var args = [];
-
+function set(success, error, db, query, args) {
   validateDb(function (db, dbPath) {
     if (query) {
       interpreter.execute(function (result) {

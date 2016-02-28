@@ -24,6 +24,21 @@ app.get('/data/:dbName', function (req, res) {
   } else {
     var get = req.query.get;
     var set = req.query.set;
+    var args = [];
+    
+    try {
+        var queryArgs = req.query.args;
+        queryParams = JSON.parse(queryArgs);
+        if (queryParams.length) {
+            for (var x = 0; x < queryParams.length; x++) {
+                args.push(queryParams[x]);
+            }
+        }
+    } catch (err) {
+    }
+    console.log("@@@@ args : "+ JSON.stringify(args));
+    console.log("@@@@ args : "+ Array.isArray(args));
+    
     if (set) {
       var value = req.query.set;
       console.log("Value is : " + value);
@@ -33,7 +48,7 @@ app.get('/data/:dbName', function (req, res) {
         },
         function (err) {
           res.status(400).send(err);
-        }, userName + "/" + dbName, set);
+        }, userName + "/" + dbName, set, args);
     } else {
       var transaction = req.query.query;
       dbService.get(
@@ -42,7 +57,7 @@ app.get('/data/:dbName', function (req, res) {
         },
         function (err) {
           res.status(400).send(err);
-        }, userName + "/" + dbName, get);
+        }, userName + "/" + dbName, get, args);
     }
   }
 });

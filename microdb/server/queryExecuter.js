@@ -4,8 +4,9 @@ var Interpreter = require('./JS-Interpreter/interpreter.js');
 var transactionSource = fs.readFileSync(__dirname + '/scripts/newQuery.js').toString();
 
 function execute(success, error, transaction, db, args) {
-  var code = "var db = " + JSON.stringify(db) + ";\n"
+  var code = "console.log('Initializing data'); var db = " + JSON.stringify(db) + ";\n"
     + "var args = " + JSON.stringify(args) + ";\n"
+    + "var ide = {trace: function (obj) {console.log('Trace : '+obj)}}; \n"
     + "var transactionMethod = " + transaction.toString() + ";\n"
     + transactionSource;
     
@@ -17,6 +18,21 @@ function execute(success, error, transaction, db, args) {
   try {
     console.log('Initializing the interpreter');
     var interpreter = new Interpreter(code, function (interpreter, scope) {
+        
+        
+      //ide.trace into interpreter
+    //   (function () {
+    //     var ideObj = interpreter.createObject(scope);
+    //     interpreter.setProperty(scope, 'ide',ideObj);
+    //   
+    //     interpreter.setProperty(ideObj, 'trace',
+    //     interpreter.createNativeFunction(function (obj) {
+    //       console.log("js-interpreter ## trace ------- : "+obj);
+    //       //TODO implement a socket emit to nortify the user. 
+    //       //So, that user can debug the code using logs
+    //     }));
+    //   })();
+        
       //Console logs into interpreter
       (function () {
         var consoleObj = interpreter.createObject(scope);
@@ -46,14 +62,14 @@ function execute(success, error, transaction, db, args) {
       var result = JSON.parse(interpreter.value.toString());
       console.log("Result : "+JSON.stringify(result));
       success(result);
-    } catch (error) {
-      console.log("Error in the query : "+error.message);
-      error("Error in the query : "+error.message);
+    } catch (err) {
+      console.log("Error in the query : "+err.stack);
+      error("Error in the query : "+err.message);
     }
     
-  } catch (err) {
-    console.log("Error while executing the query : "+err.stack);
-    error("Error while executing the query : "+err.message);
+  } catch (er) {
+    console.log("Error while executing the query : "+JSON.stringify(er));
+    error("Error while executing the query : "+er);
   }
   
   
