@@ -1,5 +1,5 @@
 var fs = require('fs');
-var Interpreter = require('./JS-Interpreter/interpreter.js');
+var Interpreter = require('./JSInterpreter/interpreter.js');
 
 var transactionSource = fs.readFileSync(__dirname + '/scripts/newQuery.js').toString();
 
